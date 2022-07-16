@@ -46,3 +46,20 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# Blockchain stuff
+Blockchain/node_modules
+Blockchain/.env
+Blockchain/coverage
+Blockchain/coverage.json
+Blockchain/typechain
+
+#Hardhat files
+Blockchain/cache
+Blockchain/artifacts
+
+# Subgraph
+Blockchain/subgraph/generated
+Blockchain/subgraph/build
+# Matchstick
+Blockchain/subgraph/tests/.*

@@ -1,0 +1,25 @@
+type Season @entity {
+  id: ID!
+  active: Boolean!
+  firstPlace: Player
+  secondPlace: Player
+  thirdPlace: Player
+  firstScore: BigInt
+  secondScore: BigInt
+  thirdScore: BigInt
+  firstPrice: BigInt
+  secondPrice: BigInt
+  thirdPrice: BigInt
+}
+
+type Player @entity {
+  id: ID!
+  scores: [Score!]! @derivedFrom(field: "player")
+}
+
+type Score @entity {
+  id: ID!
+  player: Player
+  season: Season
+  score: BigInt
+}
