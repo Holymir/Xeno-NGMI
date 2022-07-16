@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
         public float timeBetweenSpawns;
     }
 
-    public Wave[] waves;
+    public Wave wave;
     public Transform[] spawnPoints;
     public float timeBetweenWaves;
 
@@ -33,21 +33,21 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenWaves);
         StartCoroutine(SpawnWave(index));
     }
-
+    
     IEnumerator SpawnWave(int index)
     {
-        currentWave = waves[index];
-
-        for (int i = 0; i < currentWave.count; i++)
+        //currentWave = waves[index];
+        for (int i = 0; i < wave.count; i++)
         {
             if (player == null)
             {
                 yield break;
             }
-            Enemy randomEnemy = currentWave.enemy;
+            Enemy randomEnemy = wave.enemy;
             Transform randomSpot = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(randomEnemy, randomSpot.position, randomSpot.rotation);
-            yield return new WaitForSeconds(currentWave.timeBetweenSpawns);
+            wave.count++;
+            yield return new WaitForSeconds(wave.timeBetweenSpawns);
         }
     }
 

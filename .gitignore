@@ -63,3 +63,7 @@ Blockchain/subgraph/generated
 Blockchain/subgraph/build
 # Matchstick
 Blockchain/subgraph/tests/.*
+
+# Server stuff
+Server/.env
+Server/node_modules/
