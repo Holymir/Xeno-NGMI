@@ -10,13 +10,25 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public GameObject player;
 
+    public GameObject[] pickups;
+    public GameObject deathEffect;
+    public int pickupChance;
+
     public float stopDistance;
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
         if (health <= 0)
         {
+            int randomNumber = Random.Range(0, 101);
+            if (randomNumber < pickupChance)
+            {
+                GameObject randomPickup = pickups[Random.Range(0, pickups.Length)];
+                Instantiate(randomPickup, transform.position, transform.rotation);
+            }
             Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Score.instance.AddPoint();
         }
     }
     // Start is called before the first frame update

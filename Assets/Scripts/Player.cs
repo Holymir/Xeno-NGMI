@@ -14,10 +14,16 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveAmount;
     public int health;
+
+    public GameObject deathEffect;
+
+
+    Animator cameraAnim;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        cameraAnim = Camera.main.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,10 +41,12 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
+        cameraAnim.SetTrigger("Hit");
         UpdateRakiaUI(health);
         if (health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, transform.rotation);
         }
     }
 
@@ -55,6 +63,19 @@ public class Player : MonoBehaviour
                 rakia[i].sprite = emptyRakia;
             }
         }
+    }
+
+    public void Heal(int healAmount)
+    {
+        if (health + healAmount > 5)
+        {
+            health = 5;
+        }
+        else
+        {
+            health += healAmount;
+        }
+        UpdateRakiaUI(health);
     }
 
 }
