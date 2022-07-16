@@ -56,8 +56,6 @@ public class Player : MonoBehaviour
             Instantiate(dieSound, transform.position, Quaternion.identity);
             LevelChanger.instance.ChangeLevel("TransitionMeme");
             Destroy(gameObject);
-
-            // EndGame(Score.instance.GetPoints());
         }
         else
         {

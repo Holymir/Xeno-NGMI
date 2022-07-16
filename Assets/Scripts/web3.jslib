@@ -29,12 +29,20 @@ mergeInto(LibraryManager.library, {
           .call()
           .then(function(allowance){
             if(allowance.toString() !== '0'){
-                var mainContract = new web3.eth.Contract(window.mainContractAbi ,"0x5FbDB2315678afecb367f032d93F642f64180aa3");
-                mainContract.methods.startGame()
-                .send({from:web3.currentProvider.selectedAddress})
-                .then(function(){
-                    window.unityInstance.SendMessage('MainMenuManager','ChangeLevel')
-                });
+                // var mainContract = new web3.eth.Contract(window.mainContractAbi ,"0x5FbDB2315678afecb367f032d93F642f64180aa3");
+                // mainContract.methods.startGame()
+                // .send({from:web3.currentProvider.selectedAddress})
+                // .then(function(){
+                    const url = ""+window.location.origin+"/getHighScore?account="+web3.currentProvider.selectedAddress;
+                    fetch(url)
+                        .then(function(res){
+                           res.json()
+                           .then(function(jsonResponse){
+                            window.highScore = jsonResponse.highScore;
+                            window.unityInstance.SendMessage('MainMenuManager','ChangeLevel')
+                           }); 
+                        })
+                // });
                 return;
             }else{
                 tokenContract.methods.approve("0x5FbDB2315678afecb367f032d93F642f64180aa3","50000000000000000000")
@@ -44,7 +52,15 @@ mergeInto(LibraryManager.library, {
                   mainContract.methods.startGame()
                   .send({from:web3.currentProvider.selectedAddress})
                   .then(function(){
-                    window.unityInstance.SendMessage('MainMenuManager','ChangeLevel')
+                    const url = ""+window.location.origin+"/getHighScore?account="+web3.currentProvider.selectedAddress;
+                    fetch(url)
+                        .then(function(res){
+                           res.json()
+                           .then(function(jsonResponse){
+                            window.highScore = jsonResponse.highScore;
+                            window.unityInstance.SendMessage('MainMenuManager','ChangeLevel')
+                           }); 
+                        })
                   });
                   return;
                 })
@@ -60,5 +76,11 @@ mergeInto(LibraryManager.library, {
         .then(function(){
             console.log('EndGame')
         });
+    },
+    GetHighScore:function(){
+        return window.highScore;
+    },
+    SetHighScore:function(score){
+        window.highScore = score;
     }
   });
