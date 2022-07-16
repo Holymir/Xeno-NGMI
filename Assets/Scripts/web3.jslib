@@ -33,7 +33,15 @@ mergeInto(LibraryManager.library, {
                 mainContract.methods.startGame()
                 .send({from:web3.currentProvider.selectedAddress})
                 .then(function(){
-                    window.unityInstance.SendMessage('MainMenuManager','ChangeLevel')
+                    const url = ""+window.location.origin+"/getHighScore?account="+web3.currentProvider.selectedAddress;
+                    fetch(url)
+                        .then(function(res){
+                           res.json()
+                           .then(function(jsonResponse){
+                            window.highScore = jsonResponse.highScore;
+                            window.unityInstance.SendMessage('MainMenuManager','ChangeLevel')
+                           }); 
+                        })
                 });
                 return;
             }else{
@@ -44,7 +52,15 @@ mergeInto(LibraryManager.library, {
                   mainContract.methods.startGame()
                   .send({from:web3.currentProvider.selectedAddress})
                   .then(function(){
-                    window.unityInstance.SendMessage('MainMenuManager','ChangeLevel')
+                    const url = ""+window.location.origin+"/getHighScore?account="+web3.currentProvider.selectedAddress;
+                    fetch(url)
+                        .then(function(res){
+                           res.json()
+                           .then(function(jsonResponse){
+                            window.highScore = jsonResponse.highScore;
+                            window.unityInstance.SendMessage('MainMenuManager','ChangeLevel')
+                           }); 
+                        })
                   });
                   return;
                 })
@@ -60,5 +76,8 @@ mergeInto(LibraryManager.library, {
         .then(function(){
             console.log('EndGame')
         });
+    },
+    GetHighScore:function(){
+        return window.highScore;
     }
   });

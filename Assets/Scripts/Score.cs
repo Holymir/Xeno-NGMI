@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 public class Score : MonoBehaviour
 {
     public static Score instance;
     public Text scoreText;
+    public Text highScore;
     private int points;
+   [DllImport("__Internal")] private static extern int GetHighScore();
 
     private void Awake()
     {
@@ -17,6 +20,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         scoreText.text = "Score: " + points.ToString();
+        highScore.text = "High Score: "+ GetHighScore();
     }
 
     // Update is called once per frame
