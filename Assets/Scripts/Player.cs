@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 public class Player : MonoBehaviour
 
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     public int health;
 
     public GameObject deathEffect;
+    
     public GameObject ouchSound;
     public GameObject dieSound;
 
@@ -31,8 +33,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(health > 0){
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         moveAmount = moveInput.normalized * speed;
+        }
     }
 
     private void FixedUpdate()
@@ -47,9 +51,11 @@ public class Player : MonoBehaviour
         UpdateRakiaUI(health);
         if (health <= 0)
         {
+            Instantiate(deathEffect, transform.position, transform.rotation);   
             Instantiate(dieSound, transform.position, Quaternion.identity);
+            Application.LoadLevel("EndGame");
             Destroy(gameObject);
-            Instantiate(deathEffect, transform.position, transform.rotation);
+           // EndGame(Score.instance.GetPoints());
         }
         else
         {

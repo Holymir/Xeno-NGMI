@@ -4,9 +4,9 @@ using UnityEngine;
 using System.Runtime.InteropServices;
 using UnityEngine.UI;
 
-public class PlayButton : MonoBehaviour
+public class EndGameMenu : MonoBehaviour
 {
-   [DllImport("__Internal")] private static extern void CallContract();
+   [DllImport("__Internal")] private static extern void EndGame(int score);
    public Button button;
 
    void Start() {
@@ -16,6 +16,6 @@ public class PlayButton : MonoBehaviour
 
    static void ButtonPressed()
     {
-        CallContract();
+        EndGame(Score.instance.GetPoints());
     }
 }
