@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
 
     public GameObject[] pickups;
+    public GameObject deathEffect;
     public int pickupChance;
 
     public float stopDistance;
@@ -26,6 +27,8 @@ public class Enemy : MonoBehaviour
                 Instantiate(randomPickup, transform.position, transform.rotation);
             }
             Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Score.instance.AddPoint();
         }
     }
     // Start is called before the first frame update
