@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public int health;
 
     public GameObject deathEffect;
+    public GameObject ouchSound;
+    public GameObject dieSound;
 
 
     Animator cameraAnim;
@@ -45,8 +47,13 @@ public class Player : MonoBehaviour
         UpdateRakiaUI(health);
         if (health <= 0)
         {
+            Instantiate(dieSound, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Instantiate(deathEffect, transform.position, transform.rotation);
+        }
+        else
+        {
+            Instantiate(ouchSound, transform.position, Quaternion.identity);
         }
     }
 

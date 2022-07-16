@@ -12,12 +12,15 @@ public class Enemy : MonoBehaviour
 
     public GameObject[] pickups;
     public GameObject deathEffect;
+    public GameObject explosionSound;
     public int pickupChance;
 
     public float stopDistance;
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
+        Instantiate(explosionSound, transform.position, transform.rotation);
+
         if (health <= 0)
         {
             int randomNumber = Random.Range(0, 101);
@@ -46,6 +49,10 @@ public class Enemy : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             }
+        }
+        else
+        {
+            // go to end scene
         }
     }
 
