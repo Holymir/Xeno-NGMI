@@ -9,10 +9,12 @@ public class Proj : MonoBehaviour
     public int dmg;
 
     public GameObject explosion;
+    public GameObject shotSound;
     // Start is called before the first frame update
     void Start()
     {
         Invoke("DestroyProj", lifeTime);
+        Instantiate(shotSound, transform.position, transform.rotation);
     }
 
     // Update is called once per frame
