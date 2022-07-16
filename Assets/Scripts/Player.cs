@@ -17,8 +17,10 @@ public class Player : MonoBehaviour
     public int health;
 
     public GameObject deathEffect;
-   [DllImport("__Internal")] private static extern void EndGame(int score);
     
+    public GameObject ouchSound;
+    public GameObject dieSound;
+
 
     Animator cameraAnim;
     // Start is called before the first frame update
@@ -50,9 +52,14 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             Instantiate(deathEffect, transform.position, transform.rotation);   
+            Instantiate(dieSound, transform.position, Quaternion.identity);
             Application.LoadLevel("EndGame");
             Destroy(gameObject);
            // EndGame(Score.instance.GetPoints());
+        }
+        else
+        {
+            Instantiate(ouchSound, transform.position, Quaternion.identity);
         }
     }
 
