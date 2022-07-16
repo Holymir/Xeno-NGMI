@@ -46,10 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a4fe4faa1bdbb4981c672dea2d8305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 2
   speed: 7
   dmg: 1
   player: {fileID: 0}
+  pickups:
+  - {fileID: 2387041831922321060, guid: 5897eaf9b8a30a041b284c9c0ed4e217, type: 3}
+  pickupChance: 30
   stopDistance: 1
 --- !u!50 &2831116833347724991
 Rigidbody2D:
@@ -144,6 +147,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 1957619278}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,6 +118,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -164,7 +166,7 @@ GameObject:
   - component: {fileID: 41197451}
   - component: {fileID: 41197450}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: Rakia 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 258.24, y: -35.799988}
+  m_AnchoredPosition: {x: 258.24, y: -35.80005}
   m_SizeDelta: {x: 75.66, y: 75.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &41197450
@@ -204,6 +206,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -310,6 +314,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &80567193
 Canvas:
   m_ObjectHideFlags: 0
@@ -722,9 +727,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ae93592b68aea4185fa760fabc323a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rakia: []
-  fullRakia: {fileID: 0}
-  emptyRakia: {fileID: 0}
+  rakia:
+  - {fileID: 1686353837}
+  - {fileID: 497624744}
+  - {fileID: 493787760}
+  - {fileID: 41197450}
+  - {fileID: 709692440}
+  fullRakia: {fileID: 21300000, guid: 0f5f84afdc587984680ac1feecf3b0e9, type: 3}
+  emptyRakia: {fileID: 21300000, guid: 972d687959bb93948af1e4e81a29bfb7, type: 3}
   speed: 12
   health: 5
 --- !u!61 &482294286
@@ -765,7 +775,7 @@ GameObject:
   - component: {fileID: 493787761}
   - component: {fileID: 493787760}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: Rakia 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -787,7 +797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 182.57996, y: -35.799988}
+  m_AnchoredPosition: {x: 182.58008, y: -35.80005}
   m_SizeDelta: {x: 75.66, y: 75.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &493787760
@@ -805,6 +815,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -838,7 +850,7 @@ GameObject:
   - component: {fileID: 497624745}
   - component: {fileID: 497624744}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Rakia 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,7 +872,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 106.91992, y: -35.799988}
+  m_AnchoredPosition: {x: 106.91992, y: -35.80005}
   m_SizeDelta: {x: 75.66, y: 75.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &497624744
@@ -878,6 +890,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1001,7 +1015,7 @@ GameObject:
   - component: {fileID: 709692441}
   - component: {fileID: 709692440}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: Rakia 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1023,7 +1037,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 333.9, y: -35.8}
+  m_AnchoredPosition: {x: 333.8999, y: -35.80005}
   m_SizeDelta: {x: 75.66, y: 75.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &709692440
@@ -1041,6 +1055,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1214,7 +1230,7 @@ MonoBehaviour:
   wave:
     enemy: {fileID: 2831116833347724985, guid: 4883acad726820847b2453a90d8e524e, type: 3}
     count: 3
-    timeBetweenSpawns: 0.5
+    timeBetweenSpawns: 0.7
   spawnPoints:
   - {fileID: 1502834507}
   - {fileID: 923788849}
@@ -1234,7 +1250,7 @@ MonoBehaviour:
   - {fileID: 844868141}
   - {fileID: 679666085}
   - {fileID: 1364694920}
-  timeBetweenWaves: 2
+  timeBetweenWaves: 1
 --- !u!4 &1137448916
 Transform:
   m_ObjectHideFlags: 0
@@ -1699,6 +1715,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1746,7 +1763,7 @@ GameObject:
   - component: {fileID: 1686353838}
   - component: {fileID: 1686353837}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Rakia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1768,7 +1785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 31.259888, y: -35.799988}
+  m_AnchoredPosition: {x: 31.259766, y: -35.80005}
   m_SizeDelta: {x: 75.66, y: 75.66}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1686353837
@@ -1786,6 +1803,8 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1933,6 +1952,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1998,6 +2018,67 @@ Transform:
   m_Father: {fileID: 1284747262}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!850595691 &1957619278
+LightingSettings:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Settings.lighting
+  serializedVersion: 3
+  m_GIWorkflowMode: 1
+  m_EnableBakedLightmaps: 0
+  m_EnableRealtimeLightmaps: 0
+  m_RealtimeEnvironmentLighting: 1
+  m_BounceScale: 1
+  m_AlbedoBoost: 1
+  m_IndirectOutputScale: 1
+  m_UsingShadowmask: 1
+  m_BakeBackend: 0
+  m_LightmapMaxSize: 1024
+  m_BakeResolution: 40
+  m_Padding: 2
+  m_TextureCompression: 1
+  m_AO: 0
+  m_AOMaxDistance: 1
+  m_CompAOExponent: 1
+  m_CompAOExponentDirect: 0
+  m_ExtractAO: 0
+  m_MixedBakeMode: 2
+  m_LightmapsBakeMode: 1
+  m_FilterMode: 1
+  m_LightmapParameters: {fileID: 15204, guid: 0000000000000000f000000000000000, type: 0}
+  m_ExportTrainingData: 0
+  m_TrainingDataDestination: TrainingData
+  m_RealtimeResolution: 2
+  m_ForceWhiteAlbedo: 0
+  m_ForceUpdates: 0
+  m_FinalGather: 0
+  m_FinalGatherRayCount: 256
+  m_FinalGatherFiltering: 1
+  m_PVRCulling: 1
+  m_PVRSampling: 1
+  m_PVRDirectSampleCount: 32
+  m_PVRSampleCount: 500
+  m_PVREnvironmentSampleCount: 500
+  m_PVREnvironmentReferencePointCount: 2048
+  m_LightProbeSampleCountMultiplier: 4
+  m_PVRBounces: 2
+  m_PVRMinBounces: 2
+  m_PVREnvironmentMIS: 0
+  m_PVRFilteringMode: 2
+  m_PVRDenoiserTypeDirect: 0
+  m_PVRDenoiserTypeIndirect: 0
+  m_PVRDenoiserTypeAO: 0
+  m_PVRFilterTypeDirect: 0
+  m_PVRFilterTypeIndirect: 0
+  m_PVRFilterTypeAO: 0
+  m_PVRFilteringGaussRadiusDirect: 1
+  m_PVRFilteringGaussRadiusIndirect: 5
+  m_PVRFilteringGaussRadiusAO: 2
+  m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+  m_PVRFilteringAtrousPositionSigmaIndirect: 2
+  m_PVRFilteringAtrousPositionSigmaAO: 1
 --- !u!1 &2100695021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,6 +2111,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2150,6 +2232,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.11757999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11757999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.11757999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2162,6 +2264,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96928614
       objectReference: {fileID: 0}
     - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
         type: 3}
@@ -2180,16 +2287,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.96928614
-      objectReference: {fileID: 0}
-    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -2202,21 +2299,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 28.474
-      objectReference: {fileID: 0}
-    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.11757999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.11757999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8963843457322554897, guid: a1911b10e5a328949a4258b3d6fa8f95,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.11757999
       objectReference: {fileID: 0}
     - target: {fileID: 8963843457322554898, guid: a1911b10e5a328949a4258b3d6fa8f95,
         type: 3}
