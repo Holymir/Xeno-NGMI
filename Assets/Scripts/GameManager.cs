@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public void ChangeLevel()
     {
-        Application.LoadLevel("SampleScene");
+        Application.LoadLevel("EndGame");
     }
 }
