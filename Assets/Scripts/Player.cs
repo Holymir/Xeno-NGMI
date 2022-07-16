@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.InteropServices;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 
@@ -53,8 +54,8 @@ public class Player : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, transform.rotation);   
             Instantiate(dieSound, transform.position, Quaternion.identity);
-            Application.LoadLevel("EndGame");
-            Destroy(gameObject);
+           SceneManager.LoadScene("EndGame", LoadSceneMode.Additive);
+              Destroy(gameObject);
            // EndGame(Score.instance.GetPoints());
         }
         else
