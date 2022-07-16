@@ -43,17 +43,19 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform != null)
+        if (!player)
+        {
+            gameObject.SetActive(false);
+        }
+        else
         {
             if (Vector2.Distance(transform.position, player.transform.position) > stopDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             }
         }
-        else
-        {
-            // go to end scene
-        }
+        
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

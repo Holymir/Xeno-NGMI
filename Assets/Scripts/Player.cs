@@ -54,9 +54,8 @@ public class Player : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, transform.rotation);   
             Instantiate(dieSound, transform.position, Quaternion.identity);
-           SceneManager.LoadScene("EndGame", LoadSceneMode.Additive);
-              Destroy(gameObject);
-           // EndGame(Score.instance.GetPoints());
+            LevelChanger.instance.ChangeLevel("TransitionMeme");
+            Destroy(gameObject);
         }
         else
         {
