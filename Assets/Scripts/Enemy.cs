@@ -6,8 +6,9 @@ public class Enemy : MonoBehaviour
 {
     public int health;
     public float speed;
+    public int dmg;
     [HideInInspector]
-    public Transform player;
+    public GameObject player;
 
     public float stopDistance;
     public void TakeDamage(int damageAmount)
@@ -21,18 +22,27 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player != null)
+        if (player.transform != null)
         {
-            if (Vector2.Distance(transform.position, player.position) > stopDistance)
+            if (Vector2.Distance(transform.position, player.transform.position) > stopDistance)
             {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<Player>().TakeDamage(dmg);
+            Destroy(gameObject);
         }
     }
 }
