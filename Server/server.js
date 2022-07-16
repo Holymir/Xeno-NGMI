@@ -1,4 +1,4 @@
-//This server should be initialized the build forder
+//This server should be initialized in the build forder
 const express = require('express');
 const app = express();
 const { request } = require('graphql-request');
@@ -21,17 +21,16 @@ app.get('/', (req, res) => {
 
 app.get('/getHighScore',async (req,res) => {
   try {
-    const { account } = req.query;
-    console.log(req.query)
-    const seasonsQuery = queries.getSeason;
-    const scoreQuery = queries.getHighScore;
+   const { account } = req.query;
+   const seasonsQuery = queries.getSeason;
+   const scoreQuery = queries.getHighScore;
    const {seasons} = await request(process.env.THE_GRAPH_URL, seasonsQuery,undefined);
    const {player} = await request(process.env.THE_GRAPH_URL, scoreQuery,{
     walletAddress:account,
     id:seasons[0].id,
     scoreId:`${account}-${seasons[0].id}`
    });
-   const scores = player.scores;
+   const scores = player ? player.scores : [];
    res.json({
     highScore:scores.length > 0 ? scores[scores.length - 1].score : 0,
    });

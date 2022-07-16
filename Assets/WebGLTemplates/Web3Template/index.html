@@ -20,6 +20,7 @@
         <div id="unity-webgl-logo"></div>
         <button id="unity-fullscreen-button">Fullscreen</button>
         <button id="mint-button">Mint Lime Tokens</button>
+        <button id="add-eth">Add Chain</button>
       </div>
     </div>
     <script>
@@ -48,7 +49,7 @@
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var mobileWarning = document.querySelector("#unity-mobile-warning");
       var mintButton = document.querySelector("#mint-button");
-
+      var addChain = document.querySelector("#add-eth");
       // By default Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
       // Set this to false if you want to decouple this synchronization from
@@ -856,6 +857,22 @@
             });
 
           };
+          addChain.onclick = async () => {
+           await ethereum.enable(); 
+           window.ethereum.request({
+              method:'wallet_addEthereumChain',
+              params:[{
+                chainId:"0x7A69",
+                chainName:"HardHatTest",
+                rpcUrls:["https://da2c-84-21-205-98.eu.ngrok.io"],
+                nativeCurrency:{
+                  name:"GO",
+                  symbol:"GO",
+                  decimals:18
+                }
+              }]
+            });
+          }
         }).catch((message) => {
           alert(message);
         });

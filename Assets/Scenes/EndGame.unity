@@ -1115,6 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 1079977144}
+  saveScoreButton: {fileID: 1079977144}
   finalScore: {fileID: 2035546594}
 --- !u!114 &1759541219
 MonoBehaviour:
@@ -1201,8 +1202,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28.78, y: 109}
-  m_SizeDelta: {x: 202.27, y: 58.7802}
+  m_AnchoredPosition: {x: 148.1552, y: 109}
+  m_SizeDelta: {x: 388.1299, y: 58.7802}
   m_Pivot: {x: 0.64228576, y: 0.5}
 --- !u!114 &2035546594
 MonoBehaviour:
