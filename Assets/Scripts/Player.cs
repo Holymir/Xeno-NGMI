@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 
 {
+    public Image[] rakia;
+    public Sprite fullRakia;
+    public Sprite emptyRakia;
 
     public float speed;
     private Rigidbody2D rb;
@@ -31,9 +35,25 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
+        UpdateRakiaUI(health);
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void UpdateRakiaUI(int currentHealth)
+    {
+        for (int i = 0; i < rakia.Length; i++)
+        {
+            if (i < currentHealth)
+            {
+                rakia[i].sprite = fullRakia;
+            }
+            else
+            {
+                rakia[i].sprite = emptyRakia;
+            }
         }
     }
 
